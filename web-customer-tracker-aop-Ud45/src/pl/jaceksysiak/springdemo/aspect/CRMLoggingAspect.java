@@ -16,19 +16,25 @@ public class CRMLoggingAspect {
 	// setup logger
 	private Logger myLogger = Logger.getLogger(getClass().getName());
 	
-	// setup pointcut declarations
-	@Pointcut("execution(* com.luv2code.springdemo.controller.*.*(..))")
+	//setup pointcut declarations for controller
+	@Pointcut("execution(* pl.jaceksysiak.springdemo.controller.*.*(..))")
 	private void forControllerPackage() {}
 	
-	// do the same for service and dao
-	@Pointcut("execution(* com.luv2code.springdemo.service.*.*(..))")
+	//setup pointcut declarations for service
+	@Pointcut("execution(* pl.jaceksysiak.springdemo.service.*.*(..))")
 	private void forServicePackage() {}
 	
-	@Pointcut("execution(* com.luv2code.springdemo.dao.*.*(..))")
+	//setup pointcut declarations for dao
+	@Pointcut("execution(* pl.jaceksysiak.springdemo.dao.*.*(..))")
 	private void forDaoPackage() {}
+	
+	
 	
 	@Pointcut("forControllerPackage() || forServicePackage() || forDaoPackage()")
 	private void forAppFlow() {}
+	
+
+	
 	
 	// add @Before advice
 	@Before("forAppFlow()")
@@ -67,11 +73,19 @@ public class CRMLoggingAspect {
 	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
